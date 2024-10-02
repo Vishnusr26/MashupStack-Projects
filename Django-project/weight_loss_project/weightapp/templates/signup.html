@@ -1,0 +1,29 @@
+<!-- signup.html -->
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="col-md-6 card p-5">
+        <h2 class="text-center mb-3">Sign Up</h2>
+        <form method="post" class="form-input">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Username</label>
+                {{ form.username }}
+                {{ form.username.errors }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">Password</label>
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mt-4">Sign Up</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

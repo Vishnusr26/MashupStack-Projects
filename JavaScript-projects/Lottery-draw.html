@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lottery Winner</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<div align="center">
+	<h3>Lottery Draw</h3>
+	<br>
+	<button type="button" onclick="myTicket()" class="btn-primary" id="modalbtn" value="Draw">Draw</button>
+
+	<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Lottery Ticket Winner</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <p id="modwin"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+	<p id="demo"></p>
+</div>
+
+	<script type="text/javascript">
+		myTicket = () => {
+			let lotNums = [35456, 78953, 89567, 53410, 64389]
+			let lotRand = lotNums[Math.floor(Math.random() * lotNums.length)]
+
+			console.log("Ticket winner is: "+lotRand)
+
+			document.getElementById("demo").innerHTML = "<br>"+ "<div style='text-align: center; font-size: large;'>" + "The winner is: " + "<span style='color: red;'>" +lotRand + "</span>" + "</div>"
+
+			document.getElementById("modwin").innerHTML = "The winner is: " +lotRand
+			$('#myModal').modal('show')
+		}
+	</script>
+</body>
+</html>
